@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_clean_architecture/core/res/colors.dart';
+import 'package:learn_flutter_clean_architecture/core/res/fonts.dart';
+import 'package:learn_flutter_clean_architecture/core/services/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,12 +13,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Education App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        appBarTheme: const AppBarTheme(color: Colors.transparent, elevation: 0),
+        fontFamily: Fonts.poppins,
+        colorScheme: ColorScheme.fromSwatch(accentColor: AppColors.primaryColour),
       ),
-      home: Scaffold(body: Text('Hello World')),
+      onGenerateRoute: generateRoute,
     );
   }
 }
